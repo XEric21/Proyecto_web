@@ -1,4 +1,3 @@
-// ...existing code...
 document.addEventListener('DOMContentLoaded', function(){
   // Año en footer
   const yearEl = document.getElementById('year');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // Form simple validation / fake submit
+  // Form simple validation
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   form?.addEventListener('submit', function(e){
@@ -40,10 +39,11 @@ document.addEventListener('DOMContentLoaded', function(){
     const msg = form.querySelector('#message').value.trim();
     if(!name || !email || !msg){
       status.textContent = 'Por favor completa todos los campos.';
+      status.style.color = '#e94e77';
       return;
     }
-    // Aquí enviarías a un backend o servicio (Formspree, Netlify, etc.)
-    status.textContent = 'Mensaje enviado (simulado). Gracias!';
+    status.textContent = '✓ Mensaje enviado (simulado). ¡Gracias!';
+    status.style.color = '#3ab54a';
     form.reset();
     setTimeout(()=> status.textContent = '', 5000);
   });
