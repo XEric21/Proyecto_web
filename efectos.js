@@ -12,12 +12,11 @@ document.addEventListener('DOMContentLoaded', function(){
     menuToggle.setAttribute('aria-expanded', String(!expanded));
   });
 
-  // Cerrar menú al clicar enlace
   nav?.querySelectorAll('a')?.forEach(a=>{
     a.addEventListener('click', ()=> nav.classList.remove('show'));
   });
 
-  // Smooth scroll for internal links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(link=>{
     link.addEventListener('click', function(e){
       const targetId = this.getAttribute('href').slice(1);
@@ -29,22 +28,51 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  // Form simple validation
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
-  form?.addEventListener('submit', function(e){
+  // Proyectos - localStorage
+  const proyectosGrid = document.getElementById('projects-grid');
+  const formCrear = document.getElementById('crear-proyecto-form');
+  const statusCrear = document.getElementById('proyecto-status');
+
+  let proyectos = JSON.parse(localStorage.getItem('proyectos')) || [];
+
+  function mostrarProyectos() {
+    proyectosGrid.innerHTML = '';
+    proyectos.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'project-card';
+      card.innerHTML = `
+        <div class="project-thumb" style="background-color:#0b79d0"></div>
+        <div class="project-body">
+          <h3>${p.nombre}</h3>
+          <p>Autor: ${p.autor}</p>
+          <a class="project-link" href="${p.url}" target="_blank" rel="noopener">Ver proyecto</a>
+        </div>
+      `;
+      proyectosGrid.appendChild(card);
+    });
+  }
+
+  formCrear?.addEventListener('submit', function(e){
     e.preventDefault();
-    const name = form.querySelector('#name').value.trim();
-    const email = form.querySelector('#email').value.trim();
-    const msg = form.querySelector('#message').value.trim();
-    if(!name || !email || !msg){
-      status.textContent = 'Por favor completa todos los campos.';
-      status.style.color = '#e94e77';
+    const autor = document.getElementById('autor').value.trim();
+    const nombre = document.getElementById('nombre-proyecto').value.trim();
+    const url = document.getElementById('url-proyecto').value.trim();
+
+    if(!autor || !nombre || !url){
+      statusCrear.textContent = 'Completa todos los campos.';
+      statusCrear.style.color = '#e94e77';
       return;
     }
-    status.textContent = '✓ Mensaje enviado (simulado). ¡Gracias!';
-    status.style.color = '#3ab54a';
-    form.reset();
-    setTimeout(()=> status.textContent = '', 5000);
+
+    const nuevoProyecto = { autor, nombre, url };
+    proyectos.push(nuevoProyecto);
+    localStorage.setItem('proyectos', JSON.stringify(proyectos));
+    mostrarProyectos();
+    formCrear.reset();
+    statusCrear.textContent = 'Proyecto agregado con éxito!';
+    statusCrear.style.color = '#3ab54a';
+    setTimeout(()=> statusCrear.textContent='', 3000);
   });
+
+  mostrarProyectos();
 });

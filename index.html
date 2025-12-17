@@ -1,163 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portafolio - Eric Casanovas</title>
-    <link rel="stylesheet" href="estilos.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyectos Interactivos</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="#home">Eric Casanovas</a>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
-                <span class="burger"></span>
-            </button>
-            <nav id="main-nav" class="nav">
-                <a href="#home">Home</a>
-                <a href="#sobre-mi">Sobre mí</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#contacto">Contacto</a>
-                <a class="btn-ghost" href="https://github.com/XEric21" target="_blank" rel="noopener">GitHub</a>
-            </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">Proyectos Interactivos</a>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+        <span class="burger"></span>
+      </button>
+      <nav id="main-nav" class="nav">
+        <a href="#home">Home</a>
+        <a href="#crear-proyecto">Crear Proyecto</a>
+        <a href="#proyectos">Proyectos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Crea y comparte tus proyectos</h1>
+          <p>Agrega tus proyectos y compártelos con la comunidad.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="#crear-proyecto">Crear Proyecto</a>
+            <a class="btn-outline" href="#proyectos">Ver Proyectos</a>
+          </div>
         </div>
-    </header>
+        <div class="hero-image" aria-hidden="true"></div>
+      </div>
+    </section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container hero-inner">
-                <div class="hero-text">
-                    <h1>Desarrollo web y proyectos desde SMR</h1>
-                    <p>Hola, soy Eric — estudiante de SMR. Aquí subiré mis trabajos y proyectos de clase y mis proyectos personales</p>
-                    <div class="hero-ctas">
-                        <a class="btn" href="#proyectos">Ver proyectos</a>
-                        <a class="btn-outline" href="#contacto">Contactar</a>
-                    </div>
-                </div>
-                <div class="hero-image" aria-hidden="true">
-                </div>
-            </div>
-        </section>
+    <section id="crear-proyecto" class="section">
+      <div class="container">
+        <h2>Crear un proyecto</h2>
+        <form id="crear-proyecto-form">
+          <div class="form-row">
+            <label for="autor">Nombre del creador</label>
+            <input type="text" id="autor" required />
+          </div>
+          <div class="form-row">
+            <label for="nombre-proyecto">Nombre del proyecto</label>
+            <input type="text" id="nombre-proyecto" required />
+          </div>
+          <div class="form-row">
+            <label for="url-proyecto">URL del proyecto</label>
+            <input type="url" id="url-proyecto" required />
+          </div>
+          <button type="submit" class="btn">Agregar proyecto</button>
+          <p id="proyecto-status" class="form-status"></p>
+        </form>
+      </div>
+    </section>
 
-        <section id="sobre-mi" class="section">
-            <div class="container">
-                <h2>Sobre mí</h2>
-                <div class="about-grid">
-                    <div>
-                        <p>Soy un estudiante de grado medio en Sistemas Microinformáticos y Redes (SMR).</p>
-                        <ul>
-                            <li>HTML y CSS</li>
-                            <li>Git y GitHub</li>
-                            <li>Trabajos de Seguridad</li>
-                            <li>Trabajos de Sistemas operativos</li>
-                            <li>Trabajos de Servicios en red</li>
-                            <li>Trabajos de Programación</li>
-                        </ul>
-                    </div>
-                    <div class="about-card">
-                        <h3>Contacto rápido</h3>
-                        <div class="contact-links">
-                            <a href="mailto:ericcasanovas3@gmail.com" class="contact-item email">
-                                <span class="contact-icon">✉</span>
-                                <div class="contact-info">
-                                    <span class="contact-label">Email</span>
-                                    <span class="contact-value">ericcasanovas3@gmail.com</span>
-                                </div>
-                            </a>
-                            <a href="https://github.com/XEric21" target="_blank" rel="noopener" class="contact-item github">
-                                <span class="contact-icon">⚙</span>
-                                <div class="contact-info">
-                                    <span class="contact-label">GitHub</span>
-                                    <span class="contact-value">XEric21</span>
-                                </div>
-                            </a>
-                            <a href="#contacto" class="contact-item message">
-                                <span class="contact-icon">💬</span>
-                                <div class="contact-info">
-                                    <span class="contact-label">Formulario</span>
-                                    <span class="contact-value">Enviar mensaje</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="proyectos" class="section section-alt">
-            <div class="container">
-                <h2>Proyectos</h2>
-                <p>Aquí tenéis un enlace para ver mis proyectos</p>
-
-                <div class="projects-grid" id="projects-grid">
-                    <article class="project-card">
-                        <div class="project-thumb" style="background-color:#0b79d0"></div>
-                        <div class="project-body">
-                            <h3>Proyecto 1</h3>
-                            <p>Descripción corta del proyecto. Tecnologías: HTML, CSS, JS.</p>
-                            <a class="project-link" href="https://github.com/XEric21/proyecto-1" target="_blank" rel="noopener">Ver en GitHub</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-thumb" style="background-color:#e94e77"></div>
-                        <div class="project-body">
-                            <h3>Proyecto 2</h3>
-                            <p>Descripción corta del proyecto. Demo online y repositorio.</p>
-                            <a class="project-link" href="https://tu-demo-ejemplo.com" target="_blank" rel="noopener">Ver demo</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-thumb" style="background-color:#3ab54a"></div>
-                        <div class="project-body">
-                            <h3>Proyecto 3</h3>
-                            <p>Otro proyecto con herramientas utilizadas y objetivo del proyecto.</p>
-                            <a class="project-link" href="https://github.com/XEric21/proyecto-3" target="_blank" rel="noopener">Ver en GitHub</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="section">
-            <div class="container">
-                <h2>Contacto</h2>
-                <p>Rellena el formulario o usa el email para escribirme.</p>
-
-                <form id="contact-form" class="contact-form" novalidate>
-                    <div class="form-row">
-                        <label for="name">Nombre</label>
-                        <input id="name" name="name" type="text" required />
-                    </div>
-                    <div class="form-row">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" required />
-                    </div>
-                    <div class="form-row">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn">Enviar</button>
-                        <a class="btn-outline" href="mailto:ericcasanovas3@gmail.com">Enviar por email</a>
-                    </div>
-                    <p id="form-status" class="form-status" aria-live="polite"></p>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>© <span id="year"></span> Eric Casanovas — Portafolio</p>
-            <nav class="footer-nav">
-                <a href="#proyectos">Proyectos</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
+    <section id="proyectos" class="section section-alt">
+      <div class="container">
+        <h2>Proyectos</h2>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Aquí se mostrarán los proyectos dinámicamente -->
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <script src="script.js" defer></script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Proyectos Interactivos</p>
+      <nav class="footer-nav">
+        <a href="#crear-proyecto">Crear Proyecto</a>
+        <a href="#proyectos">Proyectos</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
