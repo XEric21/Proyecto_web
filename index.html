@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyectos Interactivos</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home">Proyectos Interactivos</a>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+      <a href="#home" class="brand">Proyectos Interactivos</a>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
         <span class="burger"></span>
       </button>
       <nav id="main-nav" class="nav">
@@ -21,36 +23,39 @@
     </div>
   </header>
 
+  <!-- Main -->
   <main>
+    <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Crea y comparte tus proyectos</h1>
           <p>Agrega tus proyectos y compártelos con la comunidad.</p>
           <div class="hero-ctas">
-            <a class="btn" href="#crear-proyecto">Crear Proyecto</a>
-            <a class="btn-outline" href="#proyectos">Ver Proyectos</a>
+            <a href="#crear-proyecto" class="btn">Crear Proyecto</a>
+            <a href="#proyectos" class="btn-outline">Ver Proyectos</a>
           </div>
         </div>
         <div class="hero-image" aria-hidden="true"></div>
       </div>
     </section>
 
+    <!-- Crear Proyecto -->
     <section id="crear-proyecto" class="section">
       <div class="container">
         <h2>Crear un proyecto</h2>
         <form id="crear-proyecto-form">
           <div class="form-row">
             <label for="autor">Nombre del creador</label>
-            <input type="text" id="autor" required />
+            <input type="text" id="autor" required>
           </div>
           <div class="form-row">
             <label for="nombre-proyecto">Nombre del proyecto</label>
-            <input type="text" id="nombre-proyecto" required />
+            <input type="text" id="nombre-proyecto" required>
           </div>
           <div class="form-row">
             <label for="url-proyecto">URL del proyecto</label>
-            <input type="url" id="url-proyecto" required />
+            <input type="url" id="url-proyecto" required>
           </div>
           <button type="submit" class="btn">Agregar proyecto</button>
           <p id="proyecto-status" class="form-status"></p>
@@ -58,16 +63,18 @@
       </div>
     </section>
 
+    <!-- Proyectos -->
     <section id="proyectos" class="section section-alt">
       <div class="container">
         <h2>Proyectos</h2>
         <div class="projects-grid" id="projects-grid">
-          <!-- Aquí se mostrarán los proyectos dinámicamente -->
+          <!-- Los proyectos se insertarán dinámicamente aquí -->
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Proyectos Interactivos</p>
@@ -78,6 +85,8 @@
     </div>
   </footer>
 
+  <!-- Script -->
   <script src="script.js" defer></script>
+
 </body>
 </html>
