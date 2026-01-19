@@ -3,72 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyectos Interactivos</title>
+  <meta name="description" content="Almacén de Links - Organiza y guarda tus enlaces favoritos de forma moderna y profesional">
+  <title>Almacén de Links - Eric Casanovas</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#home" class="brand">Proyectos Interactivos</a>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <a href="#home" class="brand">
+        <span class="brand-icon">🔗</span>Almacén de Links
+      </a>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
         <span class="burger"></span>
       </button>
       <nav id="main-nav" class="nav">
-        <a href="#home">Home</a>
-        <a href="#crear-proyecto">Crear Proyecto</a>
-        <a href="#proyectos">Proyectos</a>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#crear-link" class="nav-link">Agregar Link</a>
+        <a href="#links" class="nav-link">Almacén</a>
+        <button id="dark-mode-toggle" class="btn-theme" aria-label="Cambiar modo oscuro">
+          <span class="theme-icon">🌙</span>
+        </button>
       </nav>
     </div>
   </header>
 
   <!-- Main -->
   <main>
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
       <div class="container hero-inner">
-        <div class="hero-text">
-          <h1>Crea y comparte tus proyectos</h1>
-          <p>Agrega tus proyectos y compártelos con la comunidad.</p>
-          <div class="hero-ctas">
-            <a href="#crear-proyecto" class="btn">Crear Proyecto</a>
-            <a href="#proyectos" class="btn-outline">Ver Proyectos</a>
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">Guarda y organiza tus links</h1>
+            <p class="hero-subtitle">Un lugar moderno y elegante para mantener todos tus enlaces importantes a mano. Rápido, seguro y siempre disponible.</p>
+            <div class="hero-ctas">
+              <a href="#crear-link" class="btn btn-primary">Agregar Link</a>
+              <a href="#links" class="btn btn-secondary">Ver Almacén</a>
+            </div>
+          </div>
+          <div class="hero-decoration" aria-hidden="true">
+            <div class="decoration-circle decoration-circle-1"></div>
+            <div class="decoration-circle decoration-circle-2"></div>
+            <div class="decoration-circle decoration-circle-3"></div>
           </div>
         </div>
-        <div class="hero-image" aria-hidden="true"></div>
       </div>
     </section>
 
-    <!-- Crear Proyecto -->
-    <section id="crear-proyecto" class="section">
+    <!-- Formulario -->
+    <section id="crear-link" class="section form-section">
       <div class="container">
-        <h2>Crear un proyecto</h2>
-        <form id="crear-proyecto-form">
+        <div class="section-header">
+          <h2>Agregar un nuevo link</h2>
+          <p class="section-subtitle">Completa los campos para guardar un link en tu almacén</p>
+        </div>
+        <form id="crear-link-form" class="form-container">
           <div class="form-row">
-            <label for="autor">Nombre del creador</label>
-            <input type="text" id="autor" required>
+            <label for="autor" class="form-label">
+              <span class="label-icon">👤</span>
+              Autor o fuente
+            </label>
+            <input type="text" id="autor" class="form-input" placeholder="Ej: Medium" required>
           </div>
           <div class="form-row">
-            <label for="nombre-proyecto">Nombre del proyecto</label>
-            <input type="text" id="nombre-proyecto" required>
+            <label for="nombre-link" class="form-label">
+              <span class="label-icon">📌</span>
+              Nombre del link
+            </label>
+            <input type="text" id="nombre-link" class="form-input" placeholder="Ej: Youtube" required>
           </div>
           <div class="form-row">
-            <label for="url-proyecto">URL del proyecto</label>
-            <input type="url" id="url-proyecto" required>
+            <label for="url-link" class="form-label">
+              <span class="label-icon">🌐</span>
+              URL
+            </label>
+            <input type="url" id="url-link" class="form-input" placeholder="https://ejemplo.com" required>
           </div>
-          <button type="submit" class="btn">Agregar proyecto</button>
-          <p id="proyecto-status" class="form-status"></p>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span>Agregar Link</span>
+            <span class="btn-icon">➕</span>
+          </button>
+          <p id="link-status" class="form-status"></p>
         </form>
       </div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="proyectos" class="section section-alt">
+    <!-- Almacén -->
+    <section id="links" class="section links-section">
       <div class="container">
-        <h2>Proyectos</h2>
-        <div class="projects-grid" id="projects-grid">
-          <!-- Los proyectos se insertarán dinámicamente aquí -->
+        <div class="section-header">
+          <h2>Tu Almacén de Links</h2>
+          <p class="section-subtitle">Todos los links guardados en un solo lugar</p>
+        </div>
+        <div class="links-empty-state" id="empty-state">
+          <div class="empty-icon">📚</div>
+          <p>Aún no tienes links guardados.</p>
+          <a href="#crear-link" class="btn btn-secondary">Crear el primer link</a>
+        </div>
+        <div class="links-grid" id="links-grid">
+          <!-- Links se insertarán aquí -->
         </div>
       </div>
     </section>
@@ -77,16 +111,17 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Proyectos Interactivos</p>
-      <nav class="footer-nav">
-        <a href="#crear-proyecto">Crear Proyecto</a>
-        <a href="#proyectos">Proyectos</a>
-      </nav>
+      <div class="footer-content">
+        <p class="footer-text">© <span id="year"></span> Eric Casanovas — Almacén de Links</p>
+        <nav class="footer-nav">
+          <a href="#crear-link" class="footer-link">Agregar Link</a>
+          <a href="#links" class="footer-link">Almacén</a>
+          <a href="#home" class="footer-link">Inicio</a>
+        </nav>
+      </div>
     </div>
   </footer>
 
-  <!-- Script -->
   <script src="script.js" defer></script>
-
 </body>
 </html>
